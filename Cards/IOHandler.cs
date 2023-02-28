@@ -23,8 +23,12 @@
 
         public int GetInt()
         {
-            string input = Console.ReadLine() ?? "";
-            return int.Parse(input == string.Empty ? "0" : input);
+            return int.TryParse(Console.ReadLine(), out var result) ? result : 0;
+        }
+
+        public bool GetBool()
+        {
+            return bool.TryParse(Console.ReadLine(), out var result) && result;
         }
 
         public string GetString()
